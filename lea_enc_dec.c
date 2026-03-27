@@ -49,37 +49,22 @@ void lea_roundEnc(unsigned int *x, unsigned int RK[6])
     x[3] = x0;
 }
 
-void lea_decrypt128(unsigned int *ciphertxt, unsigned int RK_dec[24][6], unsigned int *plaintxt)
+void lea_decrypt128(unsigned int *ciphertxt, unsigned int RK_dec[24][6])
 {
     for(int i = 0; i < 24; i++)
-    {
         lea_roundDec(ciphertxt, RK_dec[i]);
-    }
-
-    for(int i = 0; i < 4; i++)
-        plaintxt[i] = ciphertxt[i];
 }
 
-void lea_decrypt192(unsigned int *ciphertxt, unsigned int RK_dec[28][6], unsigned int *plaintxt)
+void lea_decrypt192(unsigned int *ciphertxt, unsigned int RK_dec[28][6])
 {
     for(int i = 0; i < 28; i++)
-    {
         lea_roundDec(ciphertxt, RK_dec[i]);
-    }
-
-    for(int i = 0; i < 4; i++)
-        plaintxt[i] = ciphertxt[i];
 }
 
-void lea_decrypt256(unsigned int *ciphertxt, unsigned int RK_dec[32][6], unsigned int *plaintxt)
+void lea_decrypt256(unsigned int *ciphertxt, unsigned int RK_dec[32][6])
 {
     for(int i = 0; i < 32; i++)
-    {
         lea_roundDec(ciphertxt, RK_dec[i]);
-    }
-
-    for(int i = 0; i < 4; i++)
-        plaintxt[i] = ciphertxt[i];
 }
 
 void lea_roundDec(unsigned int *x, unsigned int RK_dec_i[6])
